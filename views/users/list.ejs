@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+<h2>Users</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.forEach(user => { %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td>
+          <a href="/users/edit/<%= user._id %>" class="button">Edit</a>
+          <a href="/users/delete/<%= user._id %>" class="button">Delete</a>
+        </td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+<a href="/users/create" class="button">Add New User</a>
+<%- include('../partials/footer') %>
